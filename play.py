@@ -81,3 +81,6 @@ if __name__ == "__main__":
 # apply
 # filter
 
+a = ["B", "NULL", "ABA", "CC", "NULL", "CA"]
+
+print(list(filter(lambda x: x != "NULL", a)))
