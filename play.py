@@ -81,6 +81,9 @@ if __name__ == "__main__":
 # apply
 # filter
 
-a = ["B", "NULL", "ABA", "CC", "NULL", ""]
+# a = ["B", "NULL", "ABA", "CC", "NULL", ""]
 
-print(list(filter(lambda x: not x.startswith("C"), a)))
+# print(list(filter(lambda x: not x.startswith("C"), a)))
+# temp = map(lambda x: str(x + 1) + "C", [34, 35, 27, 16, 12, 29])
+# print(list(temp))  # ['35C', '36C', '28C', '17C', '13C', '30C']
+print(list(map(lambda x:str(x+1)+"C", [34, 35, 27, 16, 12, 29])))
