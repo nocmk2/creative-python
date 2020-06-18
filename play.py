@@ -81,6 +81,6 @@ if __name__ == "__main__":
 # apply
 # filter
 
-a = ["B", "NULL", "ABA", "CC", "NULL", "CA"]
+a = ["B", "NULL", "ABA", "CC", "NULL", ""]
 
-print(list(filter(lambda x: x != "NULL", a)))
+print(list(filter(lambda x: not x.startswith("C"), a)))
