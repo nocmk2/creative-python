@@ -86,4 +86,37 @@ if __name__ == "__main__":
 # print(list(filter(lambda x: not x.startswith("C"), a)))
 # temp = map(lambda x: str(x + 1) + "C", [34, 35, 27, 16, 12, 29])
 # print(list(temp))  # ['35C', '36C', '28C', '17C', '13C', '30C']
-print(list(map(lambda x:str(x+1)+"C", [34, 35, 27, 16, 12, 29])))
+# print(list(map(lambda x: str(x + 1) + "C", [34, 35, 27, 16, 12, 29])))
+
+# print(reduce(lambda x, y: (x + y), [i for i in range(100)]))
+
+# print([i for i in range(100)])
+# TODO: what?
+
+
+# def fib_sum(n):
+#     return reduce(lambda x, _: [x[1], x[0] + x[1]], range(n - 1), [1, 1])[0]
+
+
+# print(fib_sum(6))
+# amt = [1800, 1900, 800, 1800, 900, 1900]
+# up, down = 0, 0
+
+
+# def f(a1, a2):
+#     global up, down
+#     c = a2 - a1
+#     if c > 0:
+#         up += c
+#     else:
+#         down += c
+#     return a2
+
+
+# reduce(f, amt, 0)
+# print(up)  # 2100
+# print(down)  # -2000
+
+f = lambda x: x + 1
+print(f(1))  # 2
+
