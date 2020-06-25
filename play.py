@@ -1,6 +1,18 @@
+import re
+
 if __name__ == "__main__":
-    a = ["B", "NULL", "ABA", "CC", "NULL", "CA"]
-    i = filter(lambda x: not x.startswith("C"), a)
-    res = list(i)
-    print(res)  # ['B', 'ABA', 'CC', 'CA']
+    rich = [
+        "Tom$$$",
+        "Jack$$$$$$$",
+        "Aris$$$$$$$",
+        "Jay$$",
+        "Tom$$$$$$$$$",
+        "Jerry$$$",
+    ]
+    the_richest = sorted(
+        rich, key=lambda x: len(re.sub(r"[^$]", "", x)), reverse=True
+    )
+    print(
+        the_richest
+    )  # ['Tom$$$$$$$$$', 'Jack$$$$$$$', 'Aris$$$$$$$', 'Tom$$$', 'Jerry$$$', 'Jay$$']
 
