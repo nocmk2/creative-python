@@ -2,11 +2,12 @@ from collections import abc
 from collections import UserDict
 import pandas as pd
 from types import MappingProxyType
+from timeit import default_timer as timer
 
 if __name__ == "__main__":
     # Collection<--Mapping<--MutableMapping
-    a = (1, 2, 3)
-    print(hash(a))
+    # a = (1, 2, 3)
+    # print(hash(a))
     # b = [1, 2, 3]
     # b.append(4)
     # print(b)
@@ -17,10 +18,10 @@ if __name__ == "__main__":
     # # hash(tf)
     # a = frozenset([30,40])
     # print(a)
-    a = dict(one=1, two=2, three=3)
-    b = {"three": 3, "two": 2, "one": 1}
-    b.popitem()
-    print(b)
+    # a = dict(one=1, two=2, three=3)
+    # b = {"three": 3, "two": 2, "one": 1}
+    # b.popitem()
+    # print(b)
     tmp = {
         "a": [
             {"a1": "tom"},
@@ -36,37 +37,120 @@ if __name__ == "__main__":
         def __init__(self, d):
             self.__data = d
 
+        @classmethod
+        def __first_value(cls, dic_data):
+            return next(iter(dic_data.items()))[1]
+
         def __eq__(self, other):
             if isinstance(other, self.__class__):
-                return hash(id(self.__data)) == hash(id(other.__data))
+                return V.__first_value(self.__data) == V.__first_value(other.__data)
             else:
                 return False
 
         def __hash__(self):
-           return 1 
+            return 1
 
         def to_dict(self):
             return self.__data
-        
+
     # https://www.v2ex.com/t/701703#reply13
     # https://learning.oreilly.com/library/view/Fluent+Python,+2nd+Edition/9781492056348/ch03.html#set_ops_dict_views_sec
-    # tmp["a"] = 
+    def dict_value_remove_duplicate(data):
+        res = {}
+        for key in data:
+            s = set()
+            for record in data[key]:
+                s.add(V(record))
+            res[key] = [e.to_dict() for e in s]
+        return res
 
-    # print(tmp["a"])
-    # s = set()
-    # for k in tmp["a"]:
-    #     # s.add(next(iter(k.values())))
-    #     s.add(V(k))
-    # x = set(tmp["a"])
-    # print(x)
-    # y = [V(x) for x in tmp["a"]]
-    # print(list(set(y)))
-    
-    # a = 78787 
-    # print(hash(a))
+    def drop_duplicates(l):
+        return [x.to_dict() for x in set([V(record) for record in l])]
 
-    # for x in (1,1,2,2,3,3,4,4):
-    #     s.add(x)
+    def v5(data):
+        return {key: drop_duplicates(value) for (key, value) in data.items()}
 
-    # print(s)
+    def v2(data):
+        ret = {}
+        for key, items in data.items():
+            exists_values = set()
+            ret[key] = []
+            for item in items:
+                item_val = next(iter(item.items()))[1]
+                if item_val not in exists_values:
+                    exists_values.add(item_val)
+                    ret[key].append(item)
+        return ret
+
+    def v3(tmp):
+        return dict(
+            [
+                (
+                    k,
+                    dict(
+                        [
+                            (n, m)
+                            for m, n in dict(
+                                [reversed(next(iter(i.items()))) for i in v]
+                            ).items()
+                        ]
+                    ),
+                )
+                for k, v in tmp.items()
+            ]
+        )
+
+    def v4(tmp):
+        return {
+            key: list(
+                reversed(
+                    [
+                        {v: k}
+                        for k, v in {
+                            y: x for d in reversed(val) for x, y in d.items()
+                        }.items()
+                    ]
+                )
+            )
+            for key, val in tmp.items()
+        }
+
+    start = timer()
+    res = dict_value_remove_duplicate(tmp)
+    end = timer()
+    print(end - start)
+    # print(tmp)
+
+    start = timer()
+    res2 = v2(tmp)
+    end = timer()
+    print(end - start)
+
+    start = timer()
+    res3 = v3(tmp)
+    end = timer()
+    print(end - start)
+
+    start = timer()
+    res4 = v4(tmp)
+    end = timer()
+    print(end - start)
+
+    start = timer()
+    res5 = v5(tmp)
+    end = timer()
+    print(end - start)
+
+    print(res)
+    print(res2)
+    print(res3)
+    print(res4)
+    print(res5)
+
+    a = (1, 2, 3)
+    print(tuple(reversed(a)))
+
+    print("*" * 80)
+
+    l = [{"a": 1}, {"b": 2}, {"c": 3}]
 
