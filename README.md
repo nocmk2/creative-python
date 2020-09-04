@@ -16,16 +16,16 @@
 * 每个概念都有清楚的解释或者外部链接，对一知半解的概念进行深入解释
 * 练习批改系统和奖励系统(建设中)
 
-## 如何学习creative-python?
+<!-- ## 如何学习creative-python?
 
-* 浏览器打开 https://github.com/nocmk2/creative-python （如果没有github账户建议注册一个）
-* Fork ```creative-python``` 到你自己的仓库
-* git clone https://github.com/你的名字/creative-python
-* 如果你还没有安装好python的开发环境请先阅读[000准备工作](https://github.com/nocmk2/creative-python/blob/master/000准备工作.md)
-* 运行creat.py文件
+* 浏览器打开 https://github.com/nocmk2/creative-python 
+* 找到你需要的 -->
+<!-- * Fork ```creative-python``` 到你自己的仓库 -->
+<!-- * git clone https://github.com/你的名字/creative-python -->
+<!-- * 如果你还没有安装好python的开发环境请先阅读[000准备工作](https://github.com/nocmk2/creative-python/blob/master/000准备工作.md) -->
 
 
 ## 目录
 
 * [000准备工作](https://github.com/nocmk2/creative-python/blob/master/000%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.md)
-* [010匿名函数&内置高阶函数](https://github.com/nocmk2/creative-python/blob/master/010匿名函数&内置高阶函数.md)
+* [310匿名函数&内置高阶函数](https://github.com/nocmk2/creative-python/blob/master/010匿名函数&内置高阶函数.md)
