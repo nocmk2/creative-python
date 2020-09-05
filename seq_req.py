@@ -4,7 +4,9 @@ import sys
 
 import requests
 
-POP20_CC = ("CN IN US ID BR PK NG BD RU JP MX PH VN ET EG DE IR TR CD FR").split()
+POP20_CC = (
+    "CN IN US ID BR PK NG BD RU JP MX PH VN ET EG DE IR TR CD FR"
+).split()
 
 # 这个站关闭了，我现在按照https://github.com/fluentpython/example-code/blob/master/17-futures-py3.7/countries/README.rst搭建一个本地的服务器
 BASE_URL = "http://flupy.org/data/flags"
@@ -37,12 +39,14 @@ def download_many(cc_list):
 
     return len(cc_list)
 
+
 def main(download_many):
     t0 = time.time()
     count = download_many(POP20_CC)
     elapsed = time.time() - t0
-    msg = '\n{} flags dowoaded in {:.2f}s'
+    msg = "\n{} flags dowoaded in {:.2f}s"
     print(msg.format(count, elapsed))
+
 
 if __name__ == "__main__":
     main(download_many)
