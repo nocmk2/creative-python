@@ -47,6 +47,7 @@ http://localhost:8021/cn/cn.gif
 
 ## Toxiproxy
 
+## CPU密集型 和 I/O密集型
 
 
 
