@@ -1,10 +1,20 @@
 # 所有练习的参考答案
 from functools import reduce
-def remove_null(): 
+def remove_cword(a): 
+    """
+    练习1.1 过滤掉a中以字符'C'开头的元素
     a = ['B','NULL','ABA','CC','NULL','CA']
-    i = filter(lambda x:x!='NULL', a)
-    res = list(i)
-    print(res) # ['B', 'ABA', 'CC', 'CA']
+    """
+    return filter(lambda x:not x.startswith('C'), a)
+
+def odd_even_bit(b):
+    """
+    练习1.2 输出代表b中奇偶数的列表，0代表偶数，1代表奇数 预期结果：[0,1,1,0,0,1]
+    b = [34, 35, 27, 16, 12, 29]
+    output: [0,1,1,0,0,1]
+    """
+    return map(lambda x:0 if x%2==0 else 1, b) 
+
 
 def fib(n):
     """
@@ -13,5 +23,8 @@ def fib(n):
     return reduce(lambda x, _: [x[1], x[0] + x[1]], range(n - 2), [1, 1])[1]
 
 if __name__ == "__main__":
+    a = ['B','NULL','ABA','CC','NULL','CA']
+    b = [34, 35, 27, 16, 12, 29]
     print(fib(3))
-    remove_null()
+    print(list(remove_cword(a)))
+    print(list(odd_even_bit(b)))
