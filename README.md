@@ -28,4 +28,4 @@
 ## 目录
 
 * [000准备工作](https://github.com/nocmk2/creative-python/blob/master/000%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.md)
-* [310匿名函数&内置高阶函数](https://github.com/nocmk2/creative-python/blob/master/010匿名函数&内置高阶函数.md)
+* [310匿名函数&内置高阶函数](https://github.com/nocmk2/creative-python/blob/master/310匿名函数&内置高阶函数.md)
