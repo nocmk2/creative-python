@@ -7,6 +7,8 @@ def co_example(a):
     c = yield a + b
     print("-> Received: c = ", c)
 
+def averager():
+    pass
 
 if __name__ == "__main__":
     c = co_example(14)
