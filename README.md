@@ -28,4 +28,31 @@
 ## 目录
 
 * [000准备工作](https://github.com/nocmk2/creative-python/blob/master/000%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C.md)
+* [001git基础]()
 * [310匿名函数&内置高阶函数](https://github.com/nocmk2/creative-python/blob/master/310匿名函数&内置高阶函数.md)
+* [002vscode工作环境]()
+* [003vim工作环境]()
+* [004python基础语法]()
+* [005pythonic]()
+* [006抽象]()
+* [007网络]()
+* [008自动化]()
+* [009AI]()
+* [010开源]()
+* [100python并发编程]()
+* [101多线程]()
+* [102多进程]()
+* [103协程]()
+* [104异步编程]()
+* [105非阻塞io和多路复用]()
+* [106Tornado核心源码]()
+* [107Flask多线程]()
+* [108Sanic核心源码]()
+* [109gunicorn核心源码]()
+* [110uWSGI]()
+* [200算法]()
+* [300python数据分析]()
+
+
+
+
